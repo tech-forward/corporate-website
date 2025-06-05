@@ -1,0 +1,11 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glass{ @apply bg-white/20 dark:bg-white/10 backdrop-blur border border-white/30 rounded-xl; }
+.hero-gradient{ @apply bg-gradient-to-br from-sky-500 via-sky-600 to-slate-900; }
+@keyframes pulseSlow{0%,100%{opacity:1}50%{opacity:.8}}
+.animate-pulse-slow{ animation:pulseSlow 10s ease-in-out infinite }
+.input{ @apply w-full p-4 rounded-xl border border-gray-300 dark:border-slate-700 bg-white/80 dark:bg-slate-800/70;}
+.btn-gradient{ @apply py-3 font-semibold rounded-full shadow-lg text-white bg-gradient-to-r from-sky-400 via-sky-500 to-cyan-600;}
