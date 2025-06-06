@@ -1,4 +1,3 @@
-
 'use client';
 import { useState } from 'react';
 
@@ -7,7 +6,7 @@ export default function ContactForm(){
   async function onSubmit(e:React.FormEvent<HTMLFormElement>){
     e.preventDefault();
     const data=Object.fromEntries(new FormData(e.currentTarget));
-    const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(data))});
+    const res=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     setStatus(res.ok?'ok':'error');
   }
   return(
