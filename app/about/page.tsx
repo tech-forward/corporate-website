@@ -66,21 +66,21 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-slate-50 p-6 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-blue-600 text-xl">👨‍💻</span>
+                  <span className="text-blue-600 text-xl">シ</span>
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">システム開発者</h3>
                 <p className="text-slate-600 text-sm">Python・TypeScript・クラウド技術の専門チーム</p>
               </div>
               <div className="bg-slate-50 p-6 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-purple-600 text-xl">💻</span>
+                  <span className="text-purple-600 text-xl">フ</span>
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">フロントエンド開発者</h3>
                 <p className="text-slate-600 text-sm">Webアプリケーション・UI開発のエキスパート</p>
               </div>
               <div className="bg-slate-50 p-6 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-green-600 text-xl">📊</span>
+                  <span className="text-green-600 text-xl">デ</span>
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-2">データアナリスト</h3>
                 <p className="text-slate-600 text-sm">BI・データ分析・業務改善の専門家</p>
