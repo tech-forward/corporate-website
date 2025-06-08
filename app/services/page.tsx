@@ -2,23 +2,15 @@ import Header from '../../components/Header';
 import Services from '../../components/Services';
 import type { Metadata } from 'next'; 
 import { siteConfig } from '@/lib/siteConfig'; 
+import { generatePageMetadata } from '@/lib/utils'; 
 
-export const metadata: Metadata = {
-  title: `提供サービス | ${siteConfig.company}`,
+export const metadata: Metadata = generatePageMetadata({
+  title: '提供サービス',
   description: 'TechForwardが提供するITソリューション一覧。システム開発、SaaS開発、ITコンサルティング、技術顧問など、お客様のビジネス課題を解決するための多様なサービスをご紹介します。',
-  openGraph: {
-    title: `提供サービス | ${siteConfig.company}`,
-    description: 'TechForwardが提供するITソリューション一覧。システム開発、SaaS開発、ITコンサルティング、技術顧問など、お客様のビジネス課題を解決するための多様なサービスをご紹介します。',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/services`, 
-  },
-  twitter: {
-    title: `提供サービス | ${siteConfig.company}`,
-    description: 'TechForwardが提供するITソリューション一覧。システム開発、SaaS開発、ITコンサルティング、技術顧問など、お客様のビジネス課題を解決するための多様なサービスをご紹介します。',
-  },
-};
+  path: '/services',
+});
 
 export default function ServicesPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const servicesJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -30,11 +22,11 @@ export default function ServicesPage() {
           '@type': 'Service',
           name: 'システム開発',
           description: 'Webアプリケーション開発、業務システム構築、AI活用、業務自動化など、お客様のニーズに合わせたカスタムシステムを開発します。',
-          url: `${siteUrl}/services#system-development`,
+          url: `${siteConfig.siteUrl}/services#system-development`,
           provider: {
             '@type': 'Organization',
             name: siteConfig.company,
-            url: siteUrl,
+            url: siteConfig.siteUrl,
           },
           serviceType: 'SoftwareDevelopment',
         },
@@ -46,11 +38,11 @@ export default function ServicesPage() {
           '@type': 'Service',
           name: 'SaaS開発',
           description: '自社SaaS型ソリューションの開発・提供。汎用業務管理ツール、顧客管理システムなど、スモールスタートから大規模運用まで対応可能なSaaSを構築します。',
-          url: `${siteUrl}/services#saas-development`,
+          url: `${siteConfig.siteUrl}/services#saas-development`,
           provider: {
             '@type': 'Organization',
             name: siteConfig.company,
-            url: siteUrl,
+            url: siteConfig.siteUrl,
           },
           // serviceType: 'SaaS' // More specific if available, or general SoftwareDevelopment
         },
@@ -62,11 +54,11 @@ export default function ServicesPage() {
           '@type': 'Service',
           name: 'ITコンサルティング',
           description: 'DX推進支援、業務フロー改善、クラウド移行、データ活用戦略、生成AI導入支援など、お客様のビジネス変革をITの側面からトータルでサポートします。',
-          url: `${siteUrl}/services#it-consulting`,
+          url: `${siteConfig.siteUrl}/services#it-consulting`,
           provider: {
             '@type': 'Organization',
             name: siteConfig.company,
-            url: siteUrl,
+            url: siteConfig.siteUrl,
           },
           serviceType: 'ConsultingService',
         },
@@ -78,11 +70,11 @@ export default function ServicesPage() {
           '@type': 'Service',
           name: '技術顧問',
           description: '月額顧問サービスとして、技術選定、アーキテクチャレビュー、コードレビュー、開発チーム強化、技術教育などを提供し、お客様の技術力向上を支援します。',
-          url: `${siteUrl}/services#technical-advisory`,
+          url: `${siteConfig.siteUrl}/services#technical-advisory`,
           provider: {
             '@type': 'Organization',
             name: siteConfig.company,
-            url: siteUrl,
+            url: siteConfig.siteUrl,
           },
           serviceType: 'TechnicalAdvisoryService', // Custom or a broader category if this doesn't fit well
         },

@@ -2,44 +2,36 @@ import Header from '../../components/Header';
 import CaseStudies from '../../components/CaseStudies';
 import type { Metadata } from 'next'; 
 import { siteConfig } from '@/lib/siteConfig'; 
+import { generatePageMetadata } from '@/lib/utils'; 
 
-export const metadata: Metadata = {
-  title: `実績・事例紹介 | ${siteConfig.company}`,
+export const metadata: Metadata = generatePageMetadata({
+  title: '実績・事例紹介',
   description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介します。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
-  openGraph: {
-    title: `実績・事例紹介 | ${siteConfig.company}`,
-    description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介します。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/case-studies`,
-  },
-  twitter: {
-    title: `実績・事例紹介 | ${siteConfig.company}`,
-    description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介します。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
-  },
-};
+  path: '/case-studies',
+});
 
 export default function CaseStudiesPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const caseStudiesJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article', 
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${siteUrl}/case-studies`,
+      '@id': `${siteConfig.siteUrl}/case-studies`,
     },
     headline: `実績・事例紹介 - ${siteConfig.company}`,
     description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
-    image: `${siteUrl}/img/og-image.png`, 
+    image: `${siteConfig.siteUrl}/img/og-image.png`, 
     author: {
       '@type': 'Organization',
       name: siteConfig.company,
-      url: siteUrl,
+      url: siteConfig.siteUrl,
     },
     publisher: {
       '@type': 'Organization',
       name: siteConfig.company,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/img/logo.png`,
+        url: `${siteConfig.siteUrl}/img/logo.png`,
       },
     },
     datePublished: '2023-01-01T08:00:00+09:00', 
