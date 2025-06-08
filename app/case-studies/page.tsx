@@ -255,9 +255,6 @@ export default function CaseStudiesPage() {
           </div>
         </section>
       </main>
-      <footer className="bg-slate-900 text-slate-400 text-center py-6">
-        &copy; 2025 TechForward LLC All rights reserved.
-      </footer>
     </>
   );
 }
