@@ -2,6 +2,14 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { siteConfig } from '@/lib/siteConfig';
+import { generatePageMetadata } from '@/lib/utils';
+
+export const metadata: Metadata = generatePageMetadata({
+  description: siteConfig.siteDescription,
+  path: '/',
+});
 
 export default function Home() {
   return (
@@ -36,9 +44,9 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="bg-slate-900 text-slate-400 text-center py-6">
+      {/* <footer className="bg-slate-900 text-slate-400 text-center py-6">
         2025 TechForward LLC All rights reserved.
-      </footer>
+      </footer> */}
     </>
   );
 }

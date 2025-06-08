@@ -2,38 +2,30 @@ import Header from '../../components/Header';
 import ContactForm from '../../components/ContactForm';
 import type { Metadata } from 'next'; 
 import { siteConfig } from '@/lib/siteConfig'; 
+import { generatePageMetadata } from '@/lib/utils'; 
 
-export const metadata: Metadata = {
-  title: `お問い合わせ | ${siteConfig.company}`,
+export const metadata: Metadata = generatePageMetadata({
+  title: 'お問い合わせ',
   description: `システム開発、DX推進、ITコンサルティング、技術顧問に関するご相談はTechForward合同会社へ。お問い合わせフォームまたは記載の連絡先よりお気軽にご連絡ください。無料相談も実施中です。`,
-  openGraph: {
-    title: `お問い合わせ | ${siteConfig.company}`,
-    description: `システム開発、DX推進、ITコンサルティング、技術顧問に関するご相談はTechForward合同会社へ。お問い合わせフォームまたは記載の連絡先よりお気軽にご連絡ください。無料相談も実施中です。`,
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
-  },
-  twitter: {
-    title: `お問い合わせ | ${siteConfig.company}`,
-    description: `システム開発、DX推進、ITコンサルティング、技術顧問に関するご相談はTechForward合同会社へ。お問い合わせフォームまたは記載の連絡先よりお気軽にご連絡ください。無料相談も実施中です。`,
-  },
-};
+  path: '/contact',
+});
 
 export default function ContactPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const contactPageJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: `お問い合わせ - ${siteConfig.company}`,
     description: 'システム開発、DX推進、ITコンサルティング、技術顧問に関するお問い合わせはこちらから。',
-    url: `${siteUrl}/contact`,
+    url: `${siteConfig.siteUrl}/contact`,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${siteUrl}/contact`,
+      '@id': `${siteConfig.siteUrl}/contact`,
     },
     publisher: { 
       '@type': 'Organization',
       name: siteConfig.company,
-      url: siteUrl,
-      logo: `${siteUrl}/img/logo.png`,
+      url: siteConfig.siteUrl,
+      logo: `${siteConfig.siteUrl}/img/logo.png`,
     },
     contactPoint: [
       {

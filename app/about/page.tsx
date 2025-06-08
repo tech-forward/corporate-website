@@ -7,45 +7,53 @@ import { siteConfig } from '@/lib/siteConfig';
 
 export const metadata: Metadata = {
   title: `私たちについて | ${siteConfig.company}`,
-  description: `TechForward合同会社の会社概要ページです。${siteConfig.company}はシステム開発、DX推進、ITコンサルティング、技術顧問サービスを通じて、お客様のビジネス成長を支援します。代表挨拶、事業内容、開発体制、所在地などをご紹介します。`,
+  description: `TechForward合同会社の会社概要ページです。${siteConfig.siteDescription} 代表挨拶（${siteConfig.founder.name}）、事業内容（${siteConfig.mainBusinessActivities.join('、')}）、開発体制、所在地（${siteConfig.address.prefecture}${siteConfig.address.city}${siteConfig.address.street}）などをご紹介します。`,
   openGraph: {
     title: `私たちについて | ${siteConfig.company}`,
-    description: `TechForward合同会社の会社概要ページです。${siteConfig.company}はシステム開発、DX推進、ITコンサルティング、技術顧問サービスを通じて、お客様のビジネス成長を支援します。代表挨拶、事業内容、開発体制、所在地などをご紹介します。`,
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/about`,
+    description: `TechForward合同会社の会社概要ページです。${siteConfig.siteDescription} 代表挨拶（${siteConfig.founder.name}）、事業内容（${siteConfig.mainBusinessActivities.join('、')}）、開発体制、所在地（${siteConfig.address.prefecture}${siteConfig.address.city}${siteConfig.address.street}）などをご紹介します。`,
+    url: `${siteConfig.siteUrl}/about`,
+    images: [
+      {
+        url: `${siteConfig.siteUrl}${siteConfig.defaultOgImagePath}`,
+        width: 1200, // 標準的なOGP画像の幅
+        height: 630, // 標準的なOGP画像の高さ
+        alt: `${siteConfig.company}の会社概要`,
+      },
+    ],
   },
   twitter: {
     title: `私たちについて | ${siteConfig.company}`,
-    description: `TechForward合同会社の会社概要ページです。${siteConfig.company}はシステム開発、DX推進、ITコンサルティング、技術顧問サービスを通じて、お客様のビジネス成長を支援します。代表挨拶、事業内容、開発体制、所在地などをご紹介します。`,
+    description: `TechForward合同会社の会社概要ページです。${siteConfig.siteDescription} 代表挨拶（${siteConfig.founder.name}）、事業内容（${siteConfig.mainBusinessActivities.join('、')}）、開発体制、所在地（${siteConfig.address.prefecture}${siteConfig.address.city}${siteConfig.address.street}）などをご紹介します。`,
+    images: [`${siteConfig.siteUrl}${siteConfig.defaultOgImagePath}`],
+  },
+  alternates: {
+    canonical: `${siteConfig.siteUrl}/about`,
   },
 };
 
 export default function AboutPage() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const aboutPageJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
     name: `私たちについて - ${siteConfig.company}`,
     description: `TechForward合同会社の会社概要、事業内容、代表者情報などをご紹介します。`,
-    url: `${siteUrl}/about`,
+    url: `${siteConfig.siteUrl}/about`,
     mainEntity: {
       '@type': 'Organization',
-      '@id': `${siteUrl}/#organization`, 
+      '@id': `${siteConfig.siteUrl}/#organization`,
       name: siteConfig.company,
-      alternateName: 'TechForward LLC',
-      description: 'システム開発、DX推進、ITコンサルティング、技術顧問サービスを提供するIT企業です。',
-      url: siteUrl,
-      logo: `${siteUrl}/img/logo.png`,
+      alternateName: siteConfig.companyEnglish,
+      description: siteConfig.siteDescription,
+      url: siteConfig.siteUrl,
+      logo: `${siteConfig.siteUrl}${siteConfig.logoPath}`,
       founder: {
         '@type': 'Person',
-        name: '沼田 宏太',
-        jobTitle: '代表社員 / エンジニア',
+        name: siteConfig.founder.name,
+        jobTitle: siteConfig.founder.jobTitle,
       },
-      foundingDate: '2025-04-01', 
+      foundingDate: siteConfig.foundingDate,
       knowsAbout: [
-        'システム開発',
-        'デジタルトランスフォーメーション (DX)',
-        'ITコンサルティング',
-        '技術顧問',
+        ...siteConfig.mainBusinessActivities,
         'Python',
         'TypeScript',
         'Google Apps Script',
@@ -90,12 +98,12 @@ export default function AboutPage() {
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-shrink-0">
                     <div className="w-32 h-32 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-full flex items-center justify-center">
-                      <span className="text-4xl font-bold text-white">沼</span>
+                      <span className="text-4xl font-bold text-white">{siteConfig.founder.name.charAt(0)}</span>
                     </div>
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">沼田 宏太</h3>
-                    <p className="text-blue-600 mb-4 text-lg">代表社員 / エンジニア</p>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{siteConfig.founder.name}</h3>
+                    <p className="text-blue-600 mb-4 text-lg">{siteConfig.founder.jobTitle}</p>
                     <p className="text-slate-600 leading-relaxed">
                       システム開発とITコンサルティングの分野で豊富な経験を持ち、中小企業様のDX推進をサポートしてきました。
                       Python、TypeScript、クラウド技術などの最新技術を駆使しながらも、お客様の事業成長を第一に考えたソリューション提供を心がけています。
@@ -108,7 +116,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* パートナーネットワーク */}
+        {/* パートナーネットワーク -> 開発体制 */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -154,30 +162,29 @@ export default function AboutPage() {
                 <div className="space-y-6">
                   <div className="border-l-4 border-blue-500 pl-6">
                     <h3 className="text-lg font-semibold text-slate-900 mb-2">商号</h3>
-                    <p className="text-slate-600">TechForward合同会社</p>
+                    <p className="text-slate-600">{siteConfig.company}（{siteConfig.companyEnglish}）</p>
                   </div>
                   <div className="border-l-4 border-green-500 pl-6">
                     <h3 className="text-lg font-semibold text-slate-900 mb-2">代表者</h3>
-                    <p className="text-slate-600">代表社員 沼田 宏太</p>
+                    <p className="text-slate-600">{siteConfig.founder.jobTitle} {siteConfig.founder.name}</p>
                   </div>
                   <div className="border-l-4 border-purple-500 pl-6">
                     <h3 className="text-lg font-semibold text-slate-900 mb-2">設立</h3>
-                    <p className="text-slate-600">2025年4月</p>
+                    <p className="text-slate-600">{new Date(siteConfig.foundingDate).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long' })}</p>
                   </div>
                 </div>
                 <div className="space-y-6">
                   <div className="border-l-4 border-orange-500 pl-6">
                     <h3 className="text-lg font-semibold text-slate-900 mb-2">事業内容</h3>
                     <ul className="text-slate-600 text-sm space-y-1">
-                      <li>・システム開発・受託開発</li>
-                      <li>・ITコンサルティング・DX支援</li>
-                      <li>・技術顧問・継続サポート</li>
-                      <li>・データ分析・BI導入支援</li>
+                      {siteConfig.mainBusinessActivities.map((activity) => (
+                        <li key={activity}>・{activity}</li>
+                      ))}
                     </ul>
                   </div>
                   <div className="border-l-4 border-red-500 pl-6">
                     <h3 className="text-lg font-semibold text-slate-900 mb-2">所在地</h3>
-                    <p className="text-slate-600">〒450-0002 愛知県名古屋市中村区名駅4丁目24番5号第2森ビル401</p>
+                    <p className="text-slate-600">〒{siteConfig.address.postalCode} {siteConfig.address.prefecture}{siteConfig.address.city}{siteConfig.address.street}</p>
                   </div>
                 </div>
               </div>
