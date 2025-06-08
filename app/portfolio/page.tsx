@@ -1,4 +1,20 @@
 import Header from '../../components/Header';
+import type { Metadata } from 'next'; 
+import { siteConfig } from '@/lib/siteConfig'; 
+
+export const metadata: Metadata = {
+  title: `開発実績 | ${siteConfig.company}`,
+  description: 'TechForwardがこれまでに手掛けたシステム開発プロジェクトをご紹介します。中小企業向けの業務自動化システム、個人事業主向けの顧客管理Webアプリ、小売業向けのデータ分析ダッシュボードなど、多様な開発実績をご覧ください。',
+  openGraph: {
+    title: `開発実績 | ${siteConfig.company}`,
+    description: 'TechForwardがこれまでに手掛けたシステム開発プロジェクトをご紹介します。中小企業向けの業務自動化システム、個人事業主向けの顧客管理Webアプリ、小売業向けのデータ分析ダッシュボードなど、多様な開発実績をご覧ください。',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/portfolio`,
+  },
+  twitter: {
+    title: `開発実績 | ${siteConfig.company}`,
+    description: 'TechForwardがこれまでに手掛けたシステム開発プロジェクトをご紹介します。中小企業向けの業務自動化システム、個人事業主向けの顧客管理Webアプリ、小売業向けのデータ分析ダッシュボードなど、多様な開発実績をご覧ください。',
+  },
+};
 
 export default function PortfolioPage() {
   return (

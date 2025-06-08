@@ -1,3 +1,4 @@
+import Image from 'next/image';
 
 const icons = [
   {src:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg', alt:'Python'},
@@ -8,6 +9,7 @@ const icons = [
   {src:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg', alt:'Docker'},
   {src:'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg', alt:'GAS'}
 ];
+
 export default function Technologies(){
   return(
     <section id="technologies" className="py-24">
@@ -15,7 +17,14 @@ export default function Technologies(){
         <h2 className="text-3xl font-bold text-center mb-16">主要テクノロジー</h2>
         <div className="flex flex-wrap justify-center gap-12">
           {icons.map((i,idx)=>(
-            <img key={idx} src={i.src} alt={i.alt} className="w-16 h-16" />
+            <Image
+              key={idx}
+              src={i.src}
+              alt={i.alt}
+              width={64}
+              height={64}
+              className="w-16 h-16"
+            />
           ))}
         </div>
       </div>

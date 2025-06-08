@@ -2,10 +2,64 @@ import Header from '../../components/Header';
 import Technologies from '../../components/Technologies';
 import About from '../../components/About';
 import Philosophy from '../../components/Philosophy';
+import type { Metadata } from 'next'; 
+import { siteConfig } from '@/lib/siteConfig'; 
+
+export const metadata: Metadata = {
+  title: `私たちについて | ${siteConfig.company}`,
+  description: `TechForward合同会社の会社概要ページです。${siteConfig.company}はシステム開発、DX推進、ITコンサルティング、技術顧問サービスを通じて、お客様のビジネス成長を支援します。代表挨拶、事業内容、開発体制、所在地などをご紹介します。`,
+  openGraph: {
+    title: `私たちについて | ${siteConfig.company}`,
+    description: `TechForward合同会社の会社概要ページです。${siteConfig.company}はシステム開発、DX推進、ITコンサルティング、技術顧問サービスを通じて、お客様のビジネス成長を支援します。代表挨拶、事業内容、開発体制、所在地などをご紹介します。`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/about`,
+  },
+  twitter: {
+    title: `私たちについて | ${siteConfig.company}`,
+    description: `TechForward合同会社の会社概要ページです。${siteConfig.company}はシステム開発、DX推進、ITコンサルティング、技術顧問サービスを通じて、お客様のビジネス成長を支援します。代表挨拶、事業内容、開発体制、所在地などをご紹介します。`,
+  },
+};
 
 export default function AboutPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const aboutPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: `私たちについて - ${siteConfig.company}`,
+    description: `TechForward合同会社の会社概要、事業内容、代表者情報などをご紹介します。`,
+    url: `${siteUrl}/about`,
+    mainEntity: {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#organization`, 
+      name: siteConfig.company,
+      alternateName: 'TechForward LLC',
+      description: 'システム開発、DX推進、ITコンサルティング、技術顧問サービスを提供するIT企業です。',
+      url: siteUrl,
+      logo: `${siteUrl}/img/logo.png`,
+      founder: {
+        '@type': 'Person',
+        name: '沼田 宏太',
+        jobTitle: '代表社員 / エンジニア',
+      },
+      foundingDate: '2025-04-01', 
+      knowsAbout: [
+        'システム開発',
+        'デジタルトランスフォーメーション (DX)',
+        'ITコンサルティング',
+        '技術顧問',
+        'Python',
+        'TypeScript',
+        'Google Apps Script',
+        'クラウドコンピューティング',
+      ]
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
+      />
       <Header />
       <main>
         <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
