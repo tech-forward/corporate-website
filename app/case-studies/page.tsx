@@ -120,7 +120,7 @@ export default function CaseStudiesPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-blue-600 text-lg">🏢</span>
+                  <span className="text-blue-600 text-lg">社</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">中小企業</h3>
                 <ul className="text-slate-600 text-sm space-y-1">
@@ -132,7 +132,7 @@ export default function CaseStudiesPage() {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-green-600 text-lg">👤</span>
+                  <span className="text-green-600 text-lg">個</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">個人事業主</h3>
                 <ul className="text-slate-600 text-sm space-y-1">
@@ -144,7 +144,7 @@ export default function CaseStudiesPage() {
               </div>
               <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                 <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-purple-600 text-lg">S</span>
+                  <span className="text-purple-600 text-lg">ス</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-3">スタートアップ</h3>
                 <ul className="text-slate-600 text-sm space-y-1">
