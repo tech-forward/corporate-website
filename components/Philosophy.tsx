@@ -1,4 +1,3 @@
-
 export default function Philosophy(){
   return(
     <section id="philosophy" className="bg-white dark:bg-slate-900 py-24">
@@ -8,7 +7,7 @@ export default function Philosophy(){
           テクノロジーの力でビジネスを創造する
         </p>
         <p className="text-center leading-relaxed space-y-4">
-        私たちは先進テクノロジーで既存業務を効率化するだけでなく、新たな価値を生み出します。<br></br>AI とクラウドを活用したイノベーションを推進し、中小企業が持続的に成長できるよう伴走支援します。<br></br>顧客と社会に誠実に向き合い、長期的な信頼関係を構築し続けます。
+        私たちは最先端技術を駆使して、既存の業務を効率化するだけでなく、新しい価値やサービスを創り出します。<br></br>特に生成AIやクラウドテクノロジーを活用したイノベーションを推進し、中小企業や個人事業主を中心に、あらゆるビジネスが持続的に成長できるよう、テクノロジーの力を最大限に活用して課題解決に取り組みます。<br></br>また、顧客や社会と誠実に向き合い、長期的な信頼関係を構築し続けます。
         </p>
       </div>
     </section>

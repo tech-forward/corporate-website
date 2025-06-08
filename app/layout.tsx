@@ -1,11 +1,10 @@
-
 import '../styles/globals.css';
 import { siteConfig } from '../lib/siteConfig';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: `${siteConfig.company} | 次世代AIとクラウドでDXを加速`,
-  description: 'TechForwardは先進AIとクラウド技術で中小企業のDXを伴走支援するパートナーです',
+  title: `${siteConfig.company} | システム開発・技術顧問・ITコンサルティング`,
+  description: 'TechForwardは中小企業・個人事業主向けのシステム開発・ITコンサルティング・技術顧問サービスを提供します',
   icons: {
     icon: '/favicon-32x32.png',
     apple: '/favicon-180x180.png',
