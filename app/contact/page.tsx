@@ -41,14 +41,14 @@ export default function ContactPage() {
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-pink-600 font-bold text-xl">2</span>
+                  <span className="text-pink-600 font-bold text-xl">3</span>
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">提案・見積</h3>
                 <p className="text-slate-600 text-sm">最適なソリューションと費用をご提案</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-orange-600 font-bold text-xl">3</span>
+                  <span className="text-orange-600 font-bold text-xl">4</span>
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">プロジェクト開始</h3>
                 <p className="text-slate-600 text-sm">開発・導入・継続サポート</p>
