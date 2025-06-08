@@ -98,7 +98,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="font-medium text-slate-900">メール</div>
-                      <div className="text-slate-600">info@techforward.com</div>
+                      <div className="text-slate-600">info@techforward.jp</div>
                     </div>
                   </div>
                   {/* TODO: 電話番号を設定する
