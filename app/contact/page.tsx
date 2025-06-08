@@ -1,9 +1,65 @@
 import Header from '../../components/Header';
 import ContactForm from '../../components/ContactForm';
+import type { Metadata } from 'next'; 
+import { siteConfig } from '@/lib/siteConfig'; 
+
+export const metadata: Metadata = {
+  title: `お問い合わせ | ${siteConfig.company}`,
+  description: `システム開発、DX推進、ITコンサルティング、技術顧問に関するご相談はTechForward合同会社へ。お問い合わせフォームまたは記載の連絡先よりお気軽にご連絡ください。無料相談も実施中です。`,
+  openGraph: {
+    title: `お問い合わせ | ${siteConfig.company}`,
+    description: `システム開発、DX推進、ITコンサルティング、技術顧問に関するご相談はTechForward合同会社へ。お問い合わせフォームまたは記載の連絡先よりお気軽にご連絡ください。無料相談も実施中です。`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/contact`,
+  },
+  twitter: {
+    title: `お問い合わせ | ${siteConfig.company}`,
+    description: `システム開発、DX推進、ITコンサルティング、技術顧問に関するご相談はTechForward合同会社へ。お問い合わせフォームまたは記載の連絡先よりお気軽にご連絡ください。無料相談も実施中です。`,
+  },
+};
 
 export default function ContactPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const contactPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: `お問い合わせ - ${siteConfig.company}`,
+    description: 'システム開発、DX推進、ITコンサルティング、技術顧問に関するお問い合わせはこちらから。',
+    url: `${siteUrl}/contact`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/contact`,
+    },
+    publisher: { 
+      '@type': 'Organization',
+      name: siteConfig.company,
+      url: siteUrl,
+      logo: `${siteUrl}/img/logo.png`,
+    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        email: siteConfig.email,
+        contactType: 'customer support',
+        areaServed: 'JP',
+        availableLanguage: ['Japanese', 'English'],
+      },
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '名駅4丁目24番5号第2森ビル401',
+      addressLocality: '名古屋市中村区',
+      addressRegion: '愛知県',
+      postalCode: '450-0002',
+      addressCountry: 'JP',
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
+      />
       <Header />
       <main>
         <section className="py-16 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
@@ -155,7 +211,7 @@ export default function ContactPage() {
         </section>
       </main>
       <footer className="bg-slate-900 text-slate-400 text-center py-6">
-        © 2025 TechForward LLC All rights reserved.
+        2025 TechForward LLC All rights reserved.
       </footer>
     </>
   );

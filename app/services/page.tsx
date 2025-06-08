@@ -1,9 +1,101 @@
 import Header from '../../components/Header';
 import Services from '../../components/Services';
+import type { Metadata } from 'next'; 
+import { siteConfig } from '@/lib/siteConfig'; 
+
+export const metadata: Metadata = {
+  title: `提供サービス | ${siteConfig.company}`,
+  description: 'TechForwardが提供するITソリューション一覧。システム開発、SaaS開発、ITコンサルティング、技術顧問など、お客様のビジネス課題を解決するための多様なサービスをご紹介します。',
+  openGraph: {
+    title: `提供サービス | ${siteConfig.company}`,
+    description: 'TechForwardが提供するITソリューション一覧。システム開発、SaaS開発、ITコンサルティング、技術顧問など、お客様のビジネス課題を解決するための多様なサービスをご紹介します。',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/services`, 
+  },
+  twitter: {
+    title: `提供サービス | ${siteConfig.company}`,
+    description: 'TechForwardが提供するITソリューション一覧。システム開発、SaaS開発、ITコンサルティング、技術顧問など、お客様のビジネス課題を解決するための多様なサービスをご紹介します。',
+  },
+};
 
 export default function ServicesPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const servicesJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        item: {
+          '@type': 'Service',
+          name: 'システム開発',
+          description: 'Webアプリケーション開発、業務システム構築、AI活用、業務自動化など、お客様のニーズに合わせたカスタムシステムを開発します。',
+          url: `${siteUrl}/services#system-development`,
+          provider: {
+            '@type': 'Organization',
+            name: siteConfig.company,
+            url: siteUrl,
+          },
+          serviceType: 'SoftwareDevelopment',
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        item: {
+          '@type': 'Service',
+          name: 'SaaS開発',
+          description: '自社SaaS型ソリューションの開発・提供。汎用業務管理ツール、顧客管理システムなど、スモールスタートから大規模運用まで対応可能なSaaSを構築します。',
+          url: `${siteUrl}/services#saas-development`,
+          provider: {
+            '@type': 'Organization',
+            name: siteConfig.company,
+            url: siteUrl,
+          },
+          // serviceType: 'SaaS' // More specific if available, or general SoftwareDevelopment
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        item: {
+          '@type': 'Service',
+          name: 'ITコンサルティング',
+          description: 'DX推進支援、業務フロー改善、クラウド移行、データ活用戦略、生成AI導入支援など、お客様のビジネス変革をITの側面からトータルでサポートします。',
+          url: `${siteUrl}/services#it-consulting`,
+          provider: {
+            '@type': 'Organization',
+            name: siteConfig.company,
+            url: siteUrl,
+          },
+          serviceType: 'ConsultingService',
+        },
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        item: {
+          '@type': 'Service',
+          name: '技術顧問',
+          description: '月額顧問サービスとして、技術選定、アーキテクチャレビュー、コードレビュー、開発チーム強化、技術教育などを提供し、お客様の技術力向上を支援します。',
+          url: `${siteUrl}/services#technical-advisory`,
+          provider: {
+            '@type': 'Organization',
+            name: siteConfig.company,
+            url: siteUrl,
+          },
+          serviceType: 'TechnicalAdvisoryService', // Custom or a broader category if this doesn't fit well
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
+      />
       <Header />
       <main>
         <section className="py-16 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
@@ -25,7 +117,8 @@ export default function ServicesPage() {
               主なサービス
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+              {/* IDを追加 */}
+              <div id="system-development" className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white text-xl">シ</span>
                 </div>
@@ -42,7 +135,8 @@ export default function ServicesPage() {
                 </div>
               </div>
               
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+              {/* IDを追加 */}
+              <div id="saas-development" className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white text-xl">S</span>
                 </div>
@@ -59,7 +153,8 @@ export default function ServicesPage() {
                 </div>
               </div>
               
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+              {/* IDを追加 */}
+              <div id="it-consulting" className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white text-xl">IT</span>
                 </div>
@@ -76,7 +171,8 @@ export default function ServicesPage() {
                 </div>
               </div>
               
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+              {/* IDを追加 */}
+              <div id="technical-advisory" className="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
                 <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4">
                   <span className="text-white text-xl">技</span>
                 </div>

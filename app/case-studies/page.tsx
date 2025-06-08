@@ -1,9 +1,91 @@
 import Header from '../../components/Header';
 import CaseStudies from '../../components/CaseStudies';
+import type { Metadata } from 'next'; 
+import { siteConfig } from '@/lib/siteConfig'; 
+
+export const metadata: Metadata = {
+  title: `実績・事例紹介 | ${siteConfig.company}`,
+  description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介します。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
+  openGraph: {
+    title: `実績・事例紹介 | ${siteConfig.company}`,
+    description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介します。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
+    url: `${process.env.NEXT_PUBLIC_SITE_URL}/case-studies`,
+  },
+  twitter: {
+    title: `実績・事例紹介 | ${siteConfig.company}`,
+    description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介します。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
+  },
+};
 
 export default function CaseStudiesPage() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const caseStudiesJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article', 
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/case-studies`,
+    },
+    headline: `実績・事例紹介 - ${siteConfig.company}`,
+    description: 'TechForwardがこれまでに手掛けたシステム開発、DX支援、ITコンサルティングの成功事例をご紹介。様々な業界のお客様の課題解決とビジネス成長を支援してきた実績をご覧ください。',
+    image: `${siteUrl}/img/og-image.png`, 
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.company,
+      url: siteUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.company,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/img/logo.png`,
+      },
+    },
+    datePublished: '2023-01-01T08:00:00+09:00', 
+    dateModified: new Date().toISOString(), 
+    articleSection: [
+      '中小企業の業務自動化',
+      '個人事業主の顧客管理システム構築',
+      'スタートアップのMVP開発支援',
+    ],
+    keywords: '事例紹介, 導入事例, システム開発実績, DX支援事例, ITコンサルティング実績',
+    review: [
+      {
+        '@type': 'Review',
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: '5',
+          bestRating: '5',
+        },
+        author: {
+          '@type': 'Person', 
+          name: '製造業 A社様',
+        },
+        reviewBody: 'Google Apps Scriptでの業務自動化により、月40時間の作業が5時間に短縮されました。コストパフォーマンスが非常に高く、満足しています。',
+      },
+      {
+        '@type': 'Review',
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: '5',
+          bestRating: '5',
+        },
+        author: {
+          '@type': 'Person', 
+          name: 'IT企業 B社様',
+        },
+        reviewBody: '技術顧問として継続的にサポートいただき、開発チームの技術力が大幅に向上しました。的確なアドバイスをいただけます。',
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(caseStudiesJsonLd) }}
+      />
       <Header />
       <main>
         <section className="py-16 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">
